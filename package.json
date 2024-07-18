@@ -1,6 +1,25 @@
 {
   "dependencies": {
+    "child_process": "^1.0.2",
     "discord.js": "^14.15.3",
-    "dotenv": "^16.4.5"
+    "distube": "^5.0.2",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "nodemon": "^3.1.4"
+  },
+  "name": "dave",
+  "type": "module",
+  "description": "BigDogs Discord Bot",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@eslint/js": "^9.7.0",
+    "eslint": "^9.7.0",
+    "globals": "^15.8.0"
   }
 }
