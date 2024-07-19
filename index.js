@@ -31,25 +31,8 @@ client.on("messageCreate", async (msg) => {
   if (msg.author.bot) return
   const prefix = "?"
   const channel = msg.member.voice.channel
-  const query = msg.content.slice(prefix.length).trim()
-
+  const filePath = "./Eminem - Superman (Explicit) [_iawpJn5Xdo].webm"
   if (!msg.content.startsWith("?")) return
-
-  await player.extractors.loadDefault()
-
-  try {
-    const { track } = await player.play(channel, query, {
-      nodeOptions: {
-        // nodeOptions are the options for guild node (aka your queue in simple word)
-        // metadata: interaction, // we can access this metadata object using queue.metadata later on
-      },
-    })
-
-    console.log(`**${track.title}** enqueued!`)
-  } catch (e) {
-    // let's return error if something failed
-    console.log(`Something went wrong: ${e}`)
-  }
 
   //   if (msg.content.startsWith("?join")) {
   //     const connection = joinVoiceChannel({
