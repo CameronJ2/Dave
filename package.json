@@ -1,11 +1,15 @@
 {
   "dependencies": {
+    "@discord-player/extractor": "^4.4.7",
+    "@discordjs/voice": "^0.17.0",
     "child_process": "^1.0.2",
+    "discord-player": "^6.6.10",
     "discord.js": "^14.15.3",
-    "distube": "^5.0.2",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
-    "nodemon": "^3.1.4"
+    "mediaplex": "^0.0.9",
+    "nodemon": "^3.1.4",
+    "youtube-ext": "^1.1.25"
   },
   "name": "dave",
   "type": "module",
@@ -13,6 +17,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
+    "dev": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
