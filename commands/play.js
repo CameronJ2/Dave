@@ -16,6 +16,6 @@ export default async (args, msg) => {
     })
   } catch (error) {
     console.error(error)
-    msg.channel.send("An error occurred while trying to play the song.")
+    msg.channel.send("An error occurred while trying to run distube.play()")
   }
 }
