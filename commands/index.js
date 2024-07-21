@@ -13,12 +13,10 @@ export const runCommand = async (msg) => {
   if (msg.author.bot) return
   if (!msg.content.startsWith(COMMAND_PREFIX)) return
 
-  const [commandWithPrefix, ...args] = msg.content
+  const [command, ...args] = msg.content
     .slice(COMMAND_PREFIX.length)
     .trim()
     .split(/ +/g)
-
-  const command = commandWithPrefix.toLowerCase().replace(COMMAND_PREFIX, "")
 
   if (!isValidCommand(command)) {
     return msg.channel.send("Invalid command")
