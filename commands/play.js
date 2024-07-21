@@ -1,4 +1,4 @@
-import { distube } from "../index.js"
+import { distubeInstance } from "../index.js"
 
 export default async (args, msg) => {
   const query = args.join(" ")
@@ -9,7 +9,7 @@ export default async (args, msg) => {
   }
 
   try {
-    await distube.play(voiceChannel, query, {
+    await distubeInstance.play(voiceChannel, query, {
       member: msg.member,
       textChannel: msg.channel,
       message: msg,

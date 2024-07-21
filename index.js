@@ -17,7 +17,7 @@ const client = new Client({
   ],
 })
 
-export const distube = new DisTube(client, {
+export const distubeInstance = new DisTube(client, {
   plugins: [new YouTubePlugin(), new YtDlpPlugin()],
 })
 
@@ -25,9 +25,11 @@ client.on("ready", function (client) {
   console.log(`${client.user.tag} is ready`)
 })
 
-client.on("messageCreate", runCommand)
+client.on("messageCreate", function (msg) {
+  runCommand(msg)
+})
 
-distube.on("playSong", (queue, song) => {
+distubeInstance.on("playSong", function (queue, song) {
   queue.textChannel.send(`Now playing: ${song.name} - ${song.url}`)
 })
 
