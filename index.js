@@ -38,19 +38,30 @@ client.on("messageCreate", async (msg) => {
   const query = args.join(" ")
   const voiceChannel = msg.member.voice.channel
 
-  if (!voiceChannel) {
-    return msg.channel.send("You need to be in a voice channel to play music!")
+  if (args[0] === "play") {
+    if (!voiceChannel) {
+      return msg.channel.send(
+        "You need to be in a voice channel to play music!"
+      )
+    }
+    try {
+      await distube.play(voiceChannel, query, {
+        member: msg.member,
+        textChannel: msg.channel,
+        message: msg,
+      })
+    } catch (error) {
+      console.error(error)
+      msg.channel.send("An error occurred while trying to play the song.")
+    }
   }
 
-  try {
-    await distube.play(voiceChannel, query, {
-      member: msg.member,
-      textChannel: msg.channel,
-      message: msg,
-    })
-  } catch (error) {
-    console.error(error)
-    msg.channel.send("An error occurred while trying to play the song.")
+  if (args[0] === "queue") {
+    const botQueue = distube.getQueue(msg.guildId)
+    if (botQueue !== undefined) {
+      let sentString = botQueue.songs.join("\n")
+      msg.channel.send(sentString)
+    }
   }
 })
 
