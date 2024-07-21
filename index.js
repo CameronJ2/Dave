@@ -16,6 +16,10 @@ const client = new Client({
   ],
 })
 
+const distubeOptions = {
+  plugins: [new YouTubePlugin(), new YtDlpPlugin()],
+}
+
 const distube = new DisTube(client, {
   plugins: [new YouTubePlugin(), new YtDlpPlugin()],
 })
