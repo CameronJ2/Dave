@@ -23,7 +23,8 @@ export const runCommand = async (msg) => {
   }
 
   try {
-    await commands[command](args, msg)
+    const commandHandler = commands[command]
+    await commandHandler(args, msg)
   } catch (error) {
     console.error(error)
     msg.channel.send("An error occurred while trying to run the command.")
