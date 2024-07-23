@@ -1,14 +1,18 @@
 import { COMMAND_PREFIX } from "../constants.js"
 import play from "./play.js"
 import queue from "./queue.js"
-import rm from "./rm.js"
+import remove from "./remove.js"
 import skip from "./skip.js"
 
 const commands = {
   play,
+  p: play,
   queue,
-  rm,
+  q: queue,
+  remove,
+  rm: remove,
   skip,
+  s: skip,
 }
 
 const isValidCommand = (name) => {
