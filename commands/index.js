@@ -1,8 +1,10 @@
 import { COMMAND_PREFIX } from "../constants.js"
 import play from "./play.js"
+import skip from "./skip.js"
 
 const commands = {
   play,
+  skip,
 }
 
 const isValidCommand = (name) => {
