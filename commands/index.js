@@ -3,6 +3,7 @@ import play from "./play.js"
 import queue from "./queue.js"
 import remove from "./remove.js"
 import skip from "./skip.js"
+import stop from "./stop.js"
 
 const commands = {
   play,
@@ -12,7 +13,11 @@ const commands = {
   remove,
   rm: remove,
   skip,
-  s: skip,
+  sk: skip,
+  stop,
+  st: stop,
+  clear: stop,
+  c: stop,
 }
 
 const isValidCommand = (name) => {
