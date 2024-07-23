@@ -1,8 +1,10 @@
 import { COMMAND_PREFIX } from "../constants.js"
 import play from "./play.js"
+import queue from "./queue.js"
 
 const commands = {
   play,
+  queue,
 }
 
 const isValidCommand = (name) => {
