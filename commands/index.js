@@ -4,6 +4,8 @@ import skip from "./skip.js"
 
 const commands = {
   play,
+  queue,
+  rm,
   skip,
 }
 
