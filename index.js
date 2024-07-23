@@ -29,12 +29,12 @@ client.on("messageCreate", function (msg) {
   runCommand(msg)
 })
 
-distubeInstance.on("playSong", function (queue, song) {
-  queue.textChannel.send(`Now playing: ${song.name} - ${song.url}`)
-})
+// distubeInstance.on("playSong", function (queue, song) {
+//   queue.textChannel.send(`Now playing: ${song.name} - ${song.url}`)
+// })
 
-distubeInstance.on("playSong", function (queue, song) {
-  queue.textChannel.send(`Now playing: ${song.name} - ${song.url}`)
+distubeInstance.on("addSong", function (queue, song) {
+  queue.textChannel.send(`Added song to queue: ${song.name} - ${song.url}`)
 })
 
 client.login(token)
