@@ -1,5 +1,7 @@
 import { COMMAND_PREFIX } from "../constants.js"
 import play from "./play.js"
+import queue from "./queue.js"
+import rm from "./rm.js"
 import skip from "./skip.js"
 
 const commands = {
