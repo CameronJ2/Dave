@@ -1,8 +1,9 @@
 import { distubeInstance } from "../index.js"
+import { DMChannel, GuildTextBasedChannel, Message } from "discord.js"
 
-export default async (args, msg) => {
+export default async (args: string[], msg: Message) => {
   const query = args.join(" ")
-  const voiceChannel = msg.member.voice.channel
+  const voiceChannel = msg.member?.voice.channel
 
   if (!voiceChannel) {
     return msg.channel.send("You need to be in a voice channel to play music!")
@@ -11,7 +12,7 @@ export default async (args, msg) => {
   try {
     await distubeInstance.play(voiceChannel, query, {
       member: msg.member,
-      textChannel: msg.channel,
+      textChannel: msg.channel as GuildTextBasedChannel,
       message: msg,
     })
   } catch (error) {

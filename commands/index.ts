@@ -1,11 +1,14 @@
-import { COMMAND_PREFIX } from "../constants.js"
-import play from "./play.js"
-import queue from "./queue.js"
-import remove from "./remove.js"
-import skip from "./skip.js"
-import stop from "./stop.js"
+import { Message } from "discord.js"
+import { COMMAND_PREFIX } from "../constants"
+import play from "./play"
+import queue from "./queue"
+import remove from "./remove"
+import skip from "./skip"
+import stop from "./stop"
 
-const commands = {
+const commands: {
+  [key: string]: (args: string[], msg: Message) => Promise<any>
+} = {
   play,
   p: play,
   queue,
@@ -20,11 +23,13 @@ const commands = {
   c: stop,
 }
 
-const isValidCommand = (name) => {
-  return !!commands[name]
+type COMMAND = keyof typeof commands
+
+const isValidCommand = (name: string) => {
+  return name in commands
 }
 
-export const runCommand = async (msg) => {
+export const runCommand = async (msg: Message<boolean>) => {
   if (msg.author.bot) return
   if (!msg.content.startsWith(COMMAND_PREFIX)) return
 
@@ -38,7 +43,7 @@ export const runCommand = async (msg) => {
   }
 
   try {
-    const commandHandler = commands[command]
+    const commandHandler = commands[command as COMMAND]
     await commandHandler(args, msg)
   } catch (error) {
     console.error(error)

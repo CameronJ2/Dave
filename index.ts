@@ -1,13 +1,13 @@
 import { Client, IntentsBitField } from "discord.js"
 import dotenv from "dotenv"
-import { DisTube } from "distube"
+import { DisTube, Events, Queue } from "distube"
 import { YtDlpPlugin } from "@distube/yt-dlp"
 import { YouTubePlugin } from "@distube/youtube"
-import { runCommand } from "./commands/index.js"
+import { runCommand } from "./commands/index"
 dotenv.config()
 
-const token = process.env.DISCORD_TOKEN
-const client = new Client({
+const token: string | undefined = process.env.DISCORD_TOKEN
+const client: Client = new Client({
   intents: [
     IntentsBitField.Flags.Guilds,
     IntentsBitField.Flags.GuildMembers,
@@ -29,12 +29,8 @@ client.on("messageCreate", function (msg) {
   runCommand(msg)
 })
 
-// distubeInstance.on("playSong", function (queue, song) {
-//   queue.textChannel.send(`Now playing: ${song.name} - ${song.url}`)
-// })
-
-distubeInstance.on("addSong", function (queue, song) {
-  queue.textChannel.send(`Added song to queue: ${song.name} - ${song.url}`)
+distubeInstance.on(Events.ADD_SONG, function (queue, song) {
+  queue.textChannel?.send(`Added song to queue: ${song.name} - ${song.url}`)
 })
 
 client.login(token)
