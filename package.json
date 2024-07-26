@@ -26,7 +26,6 @@
 	"author": "",
 	"license": "ISC",
 	"devDependencies": {
-		"@biomejs/biome": "^1.8.3",
 		"globals": "^15.8.0"
 	}
 }
