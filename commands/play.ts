@@ -1,5 +1,5 @@
+import type { GuildTextBasedChannel, Message } from "discord.js"
 import { distubeInstance } from "../index.js"
-import { DMChannel, GuildTextBasedChannel, Message } from "discord.js"
 
 export default async (args: string[], msg: Message) => {
   const query = args.join(" ")

@@ -1,4 +1,4 @@
-import { Message } from "discord.js"
+import type { Message } from "discord.js"
 import { distubeInstance } from "../index.js"
 
 export default async (args: string[], msg: Message) => {

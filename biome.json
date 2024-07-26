@@ -1,0 +1,13 @@
+{
+	"organizeImports": { "enabled": true, "include": ["*.ts"] },
+	"linter": {
+		"enabled": true,
+		"rules": { "recommended": true }
+	},
+	"javascript": {
+		"formatter": {
+			"quoteStyle": "single",
+			"semicolons": "asNeeded"
+		}
+	}
+}
