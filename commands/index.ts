@@ -1,4 +1,4 @@
-import { Message } from "discord.js"
+import type { Message } from "discord.js"
 import { COMMAND_PREFIX } from "../constants"
 import play from "./play"
 import queue from "./queue"
@@ -7,7 +7,7 @@ import skip from "./skip"
 import stop from "./stop"
 
 const commands: {
-  [key: string]: (args: string[], msg: Message) => Promise<any>
+  [key: string]: (args: string[], msg: Message) => Promise<unknown>
 } = {
   play,
   p: play,
