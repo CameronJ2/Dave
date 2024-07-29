@@ -1,7 +1,5 @@
 # TODO
 
-## Create organized command library for adding new commands.
+## Get current song progress so we can figure out what to do with it.
 
-Play and stop
-
-## Figure out how to interact with Distube's Queueing.
+##

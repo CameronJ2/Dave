@@ -5,6 +5,7 @@ import queue from "./queue"
 import remove from "./remove"
 import skip from "./skip"
 import stop from "./stop"
+import np from "./nowPlaying"
 
 const commands: {
   [key: string]: (args: string[], msg: Message) => Promise<unknown>
@@ -21,6 +22,7 @@ const commands: {
   st: stop,
   clear: stop,
   c: stop,
+  np,
 }
 
 type COMMAND = keyof typeof commands
