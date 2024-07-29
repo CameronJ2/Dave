@@ -14,7 +14,10 @@ export default async (args: string[], msg: Message) => {
 
   const sentString = botQueue.songs
     .map((value, index) => {
-      return `${index + 1}: ${value}`
+      if (index === 0) {
+        return ""
+      }
+      return `${index}: ${value}`
     })
     .join("\n")
 
