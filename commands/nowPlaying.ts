@@ -9,8 +9,10 @@ export default async (args: string[], msg: Message) => {
   const botQueue = distubeInstance.getQueue(msg.guildId)
 
   if (!botQueue) {
-    return
+    return msg.channel.send("No song playing or queued!")
   }
+
+  return msg.channel.send(`now playing: ${botQueue.songs[0]}`)
 
   //   return msg.channel.send(sentString)
 }
