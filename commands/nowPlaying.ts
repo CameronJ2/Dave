@@ -9,13 +9,8 @@ export default async (args: string[], msg: Message) => {
   const botQueue = distubeInstance.getQueue(msg.guildId)
 
   if (!botQueue) {
-    return msg.channel.send("No songs in queue!")
-  }
-
-  if (!botQueue.songs[1]) {
-    await distubeInstance.stop(msg.guildId)
     return
   }
 
-  await distubeInstance.skip(msg.guildId)
+  //   return msg.channel.send(sentString)
 }
