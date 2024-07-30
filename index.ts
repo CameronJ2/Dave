@@ -21,6 +21,8 @@ export const distubeInstance = new DisTube(client, {
   plugins: [new YouTubePlugin(), new YtDlpPlugin()],
 })
 
+// distubeInstance.setMaxListeners(4)
+
 client.on("ready", function (client) {
   console.log(`${client.user.tag} is ready`)
 })

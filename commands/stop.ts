@@ -10,5 +10,7 @@ export default async (args: string[], msg: Message) => {
   } catch (error) {
     console.error(error)
     console.log("Error running the stop command")
+  } finally {
+    console.log("Bot stopped.")
   }
 }
