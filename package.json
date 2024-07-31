@@ -4,6 +4,7 @@
 		"@discordjs/voice": "^0.17.0",
 		"@distube/youtube": "^1.0.2",
 		"@distube/yt-dlp": "^2.0.1",
+		"@distube/ytdl-core": "^4.13.7",
 		"child_process": "^1.0.2",
 		"discord.js": "^14.15.3",
 		"distube": "^5.0.2",

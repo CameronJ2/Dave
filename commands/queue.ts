@@ -21,5 +21,5 @@ export default async (args: string[], msg: Message) => {
     })
     .join("\n")
 
-  return msg.channel.send(sentString)
+  return msg.channel.send(sentString.length ? sentString : "No songs in queue")
 }
