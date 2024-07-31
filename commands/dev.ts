@@ -3,7 +3,7 @@
 import type { GuildTextBasedChannel, Message } from "discord.js"
 import { distubeInstance } from "../index"
 import { wait } from "../utils"
-import play from "./play"
+import { play } from "./play"
 import stop from "./stop"
 
 export default async (args: string[], msg: Message) => {
