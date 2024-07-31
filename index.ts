@@ -21,15 +21,15 @@ export const distubeInstance = new DisTube(client, {
   plugins: [new YouTubePlugin(), new YtDlpPlugin()],
 })
 
-client.on("ready", function (client) {
+client.on("ready", (client) => {
   console.log(`${client.user.tag} is ready`)
 })
 
-client.on("messageCreate", function (msg) {
+client.on("messageCreate", (msg) => {
   runCommand(msg)
 })
 
-distubeInstance.on(Events.ADD_SONG, function (queue, song) {
+distubeInstance.on(Events.ADD_SONG, (queue, song) => {
   queue.textChannel?.send(`Added song to queue: ${song.name} - ${song.url}`)
 })
 
