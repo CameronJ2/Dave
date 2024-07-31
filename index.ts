@@ -73,7 +73,7 @@ distubeInstance.on(Events.ERROR, async (error, queue, song) => {
 client.login(token)
 
 client.on("ready", () => {
-  client.user?.setStatus
+  console.log(client.user?.displayName)
 })
 
 console.log("**************************")
