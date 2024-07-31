@@ -1,6 +1,6 @@
 import { YouTubePlugin } from "@distube/youtube"
 import { YtDlpPlugin } from "@distube/yt-dlp"
-import { Client, IntentsBitField } from "discord.js"
+import { Client, IntentsBitField, ActivityType } from "discord.js"
 import { DisTube, Events, Queue } from "distube"
 import dotenv from "dotenv"
 import { runCommand } from "./commands/index"
@@ -9,7 +9,7 @@ import { wait } from "./utils"
 dotenv.config()
 
 const token: string | undefined = process.env.DISCORD_TOKEN
-const client: Client = new Client({
+export const client: Client = new Client({
   intents: [
     IntentsBitField.Flags.Guilds,
     IntentsBitField.Flags.GuildMembers,
@@ -73,7 +73,11 @@ distubeInstance.on(Events.ERROR, async (error, queue, song) => {
 client.login(token)
 
 client.on("ready", () => {
-  console.log(client.user?.displayName)
+  client.user?.setActivity({
+    name: "under control",
+    state: "here or there",
+    type: ActivityType.Listening,
+  })
 })
 
 console.log("**************************")
