@@ -4,7 +4,7 @@ import { Client, IntentsBitField, ActivityType } from "discord.js"
 import { DisTube, Events, Queue } from "distube"
 import dotenv from "dotenv"
 import { runCommand } from "./commands/index"
-import play from "./commands/play"
+import { play, replay } from "./commands/play"
 import { wait } from "./utils"
 dotenv.config()
 
@@ -94,13 +94,17 @@ distubeInstance.on(Events.ERROR, async (error, queue, song) => {
 
   if (error.name === "DisTubeError [FFMPEG_EXITED]") {
     if (song) {
-      await wait(1000)
+      // await wait(1000)
 
       try {
-        queue.addToQueue(song)
+        // if (queue.stopped) {
+        //   console.log("Queue is stopped!")
+        // }
+        // queue.addToQueue(song, 1)
+        replay()
       } catch (err) {
-        console.error("Caught error adding to queue")
-        addToErrorCounter()
+        console.error("Caught error adding to queue", err)
+        // addToErrorCounter()
       }
     }
   }

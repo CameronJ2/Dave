@@ -22,8 +22,13 @@ import { ActivityType } from "discord.js"
 //   }
 // }
 
-const play = async (args: string[], msg: Message) => {
+let LASTMESSAGE: Message<boolean>
+let LASTQUERY: string
+
+export const play = async (args: string[], msg: Message) => {
+  LASTMESSAGE = msg
   const query = args.join(" ")
+  LASTQUERY = query
   const voiceChannel = msg.member?.voice.channel
 
   if (!voiceChannel) {
@@ -51,13 +56,6 @@ const play = async (args: string[], msg: Message) => {
       throw new Error("No queue, cant send feedback")
     }
 
-    // Update bot's status.
-    // client.user?.setActivity({
-    //   name: queue.songs[0].name ? queue.songs[0].name : "",
-    //   state: "x:xx out of x:xx",
-    //   type: ActivityType.Listening,
-    // })
-
     const lastSongInQueue = queue.songs[queue.songs.length - 1]
 
     msg.channel.send(
@@ -67,6 +65,22 @@ const play = async (args: string[], msg: Message) => {
     console.error(error)
     msg.channel.send("An error occurred while trying to run distube.play()")
   }
+
+  return msg
 }
 
-export default play
+export const replay = async () => {
+  const msg = LASTMESSAGE
+  const query = LASTQUERY
+  const voiceChannel = msg.member?.voice.channel
+  if (!voiceChannel) {
+    return msg.channel.send("You need to be in a voice channel to play music!")
+  }
+  await distubeInstance.play(voiceChannel, query, {
+    member: msg.member,
+    textChannel: msg.channel as GuildTextBasedChannel,
+    message: msg,
+  })
+}
+
+// export default play
