@@ -72,15 +72,21 @@ distubeInstance.on(Events.PLAY_SONG, (queue, song) => {
 })
 
 distubeInstance.on(Events.FINISH, (queue) => {
-  client.user?.setActivity()
+  client.user?.setActivity({
+    name: "",
+  })
 })
 
 distubeInstance.on(Events.DELETE_QUEUE, (queue) => {
-  client.user?.setActivity()
+  client.user?.setActivity({
+    name: "",
+  })
 })
 
 distubeInstance.on(Events.NO_RELATED, (queue) => {
-  client.user?.setActivity()
+  client.user?.setActivity({
+    name: "",
+  })
 })
 
 distubeInstance.on(Events.ERROR, async (error, queue, song) => {
