@@ -19,6 +19,8 @@ export const client: Client = new Client({
   ],
 })
 
+const ytPlugin = new YouTubePlugin()
+
 export const distubeInstance = new DisTube(client, {
   plugins: [new YouTubePlugin(), new YtDlpPlugin()],
 })
@@ -53,6 +55,34 @@ const addToErrorCounter = () => {
   }, 5000)
 }
 
+distubeInstance.on(Events.FINISH_SONG, (queue, song) => {
+  client.user?.setActivity({
+    name: `: ${queue.songs[0].name ? queue.songs[0].name : ""}`,
+    state: "x:xx out of x:xx",
+    type: ActivityType.Listening,
+  })
+})
+
+distubeInstance.on(Events.PLAY_SONG, (queue, song) => {
+  client.user?.setActivity({
+    name: `: ${queue.songs[0].name ? queue.songs[0].name : ""}`,
+    state: "x:xx out of x:xx",
+    type: ActivityType.Listening,
+  })
+})
+
+distubeInstance.on(Events.FINISH, (queue) => {
+  client.user?.setActivity()
+})
+
+distubeInstance.on(Events.DELETE_QUEUE, (queue) => {
+  client.user?.setActivity()
+})
+
+distubeInstance.on(Events.NO_RELATED, (queue) => {
+  client.user?.setActivity()
+})
+
 distubeInstance.on(Events.ERROR, async (error, queue, song) => {
   console.error("Error caught!", error.name)
 
@@ -70,13 +100,13 @@ distubeInstance.on(Events.ERROR, async (error, queue, song) => {
   }
 })
 
+// distubeInstance.on(Events.)
+
 client.login(token)
 
 client.on("ready", () => {
   client.user?.setActivity({
-    name: "under control",
-    state: "here or there",
-    type: ActivityType.Listening,
+    name: "",
   })
 })
 

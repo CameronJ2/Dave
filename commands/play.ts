@@ -1,6 +1,7 @@
 import type { GuildTextBasedChannel, Message } from "discord.js"
 import { DisTubeEvents, Events } from "distube"
-import { distubeInstance } from "../index.js"
+import { distubeInstance, client } from "../index.js"
+import { ActivityType } from "discord.js"
 
 // const errorListenerFactory = (args: string[], msg: Message, retries = 0) => {
 //   return async (error: Error) => {
@@ -49,6 +50,13 @@ const play = async (args: string[], msg: Message) => {
     if (!queue) {
       throw new Error("No queue, cant send feedback")
     }
+
+    // Update bot's status.
+    // client.user?.setActivity({
+    //   name: queue.songs[0].name ? queue.songs[0].name : "",
+    //   state: "x:xx out of x:xx",
+    //   type: ActivityType.Listening,
+    // })
 
     const lastSongInQueue = queue.songs[queue.songs.length - 1]
 
