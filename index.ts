@@ -7,6 +7,7 @@ import dotenv from "dotenv"
 import { runCommand } from "./commands/index"
 import { play } from "./commands/play"
 import { wait } from "./utils"
+import fs from "fs"
 dotenv.config()
 
 const token: string | undefined = process.env.DISCORD_TOKEN
@@ -20,10 +21,11 @@ export const client: Client = new Client({
   ],
 })
 
-const ytPlugin = new YouTubePlugin()
+const testCookie = new YouTubePlugin()
+const cookies = JSON.parse(fs.readFileSync("cookies.json", "utf8"))
 
 export const distubeInstance = new DisTube(client, {
-  plugins: [new YouTubePlugin(), new YtDlpPlugin()],
+  plugins: [new YouTubePlugin({ cookies }), new YtDlpPlugin()],
 })
 
 distubeInstance.removeListener(Events.ERROR, () => {})
