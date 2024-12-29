@@ -16,7 +16,7 @@ export default async (args: string[], msg: Message) => {
 
   let numPages = Math.floor(botQueue.songs.length / 10)
 
-  let sentString = `page ${page} of ${numPages}\n`
+  let sentString = `page ${page} of ${numPages}\n\n`
 
   if (!botQueue) {
     return msg.channel.send("No songs in queue")
@@ -24,7 +24,6 @@ export default async (args: string[], msg: Message) => {
 
   for (let i = page * 10; i < page * 10 + 11; i++) {
     if (i >= botQueue.songs.length || i == page * 10 + 10) {
-      sentString += "\nQueue page finished."
       break
     }
     if (i === 0) {

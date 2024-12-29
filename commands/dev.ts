@@ -7,55 +7,22 @@ import { play } from "./play"
 import stop from "./stop"
 
 export default async (args: string[], msg: Message) => {
-  await stop(args, msg)
-  await wait(1000)
-  const voiceChannel = msg.member?.voice.channel
-  const song1: string[] = ["https://www.youtube.com/watch?v=T6eK-2OQtew"]
-  const song2: string[] = ["https://www.youtube.com/watch?v=4QIZE708gJ4"]
-  const song3: string[] = ["https://www.youtube.com/watch?v=RoeXmaSE7Lo"]
-  const song4: string[] = ["https://www.youtube.com/watch?v=T6eK-2OQtew"]
-  const song5: string[] = ["https://www.youtube.com/watch?v=4QIZE708gJ4"]
-  const song6: string[] = ["https://www.youtube.com/watch?v=RoeXmaSE7Lo"]
-  const song7: string[] = ["https://www.youtube.com/watch?v=T6eK-2OQtew"]
-  const song8: string[] = ["https://www.youtube.com/watch?v=4QIZE708gJ4"]
-  const song9: string[] = ["https://www.youtube.com/watch?v=RoeXmaSE7Lo"]
-  const song10: string[] = ["https://www.youtube.com/watch?v=T6eK-2OQtew"]
-  const song11: string[] = ["https://www.youtube.com/watch?v=4QIZE708gJ4"]
-  const song12: string[] = ["https://www.youtube.com/watch?v=RoeXmaSE7Lo"]
-  const song13: string[] = ["https://www.youtube.com/watch?v=T6eK-2OQtew"]
-  const song14: string[] = ["https://www.youtube.com/watch?v=4QIZE708gJ4"]
-  const song15: string[] = ["https://www.youtube.com/watch?v=RoeXmaSE7Lo"]
+  // await stop(args, msg)
+  // await wait(1000)
 
-  await play(song1, msg)
-  await wait(1000)
-  await play(song2, msg)
-  await wait(1000)
-  await play(song3, msg)
-  await wait(1000)
-  await play(song4, msg)
-  await wait(1000)
-  await play(song5, msg)
-  await wait(1000)
-  await play(song6, msg)
-  await wait(1000)
-  await play(song7, msg)
-  await wait(1000)
-  await play(song8, msg)
-  await wait(1000)
-  await play(song9, msg)
-  await wait(1000)
-  await play(song10, msg)
-  await wait(1000)
-  await play(song11, msg)
-  await wait(1000)
-  await play(song12, msg)
-  await wait(1000)
-  await play(song13, msg)
-  await wait(1000)
-  await play(song14, msg)
-  await wait(1000)
-  await play(song15, msg)
-  await wait(1000)
+  const waitTime = 500
+
+  const numLoops = args[0] ? parseInt(args[0]) : 1
+
+  for (let i = 1; i <= numLoops; i++) {
+    await play(["https://www.youtube.com/watch?v=T6eK-2OQtew"], msg)
+    await wait(waitTime)
+    await play(["https://www.youtube.com/watch?v=4QIZE708gJ4"], msg)
+    await wait(waitTime)
+    await play(["https://www.youtube.com/watch?v=RoeXmaSE7Lo"], msg)
+  }
+
+  // const voiceChannel = msg.member?.voice.channel
 
   // play(song1, msg)
   // setTimeout(() => {
