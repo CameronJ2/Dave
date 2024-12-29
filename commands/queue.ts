@@ -14,15 +14,17 @@ export default async (args: string[], msg: Message) => {
 
   let page: number = args[0] ? parseInt(args[0]) : 0
 
-  let sentString = ""
+  let numPages = Math.floor(botQueue.songs.length / 10)
+
+  let sentString = `page ${page} of ${numPages}\n`
 
   if (!botQueue) {
     return msg.channel.send("No songs in queue")
   }
 
-  for (let i = page * 10; i < i + 10; i++) {
-    if (i >= botQueue.songs.length) {
-      sentString += "Queue page finished."
+  for (let i = page * 10; i < page * 10 + 11; i++) {
+    if (i >= botQueue.songs.length || i == page * 10 + 10) {
+      sentString += "\nQueue page finished."
       break
     }
     if (i === 0) {
