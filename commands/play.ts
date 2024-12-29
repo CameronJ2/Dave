@@ -1,7 +1,7 @@
 import type { GuildTextBasedChannel, Message } from "discord.js"
 import { ActivityType } from "discord.js"
 import { DisTubeEvents, Events } from "distube"
-import { client, distubeInstance } from "../index.js"
+import { client, distubeInstance } from "../index.ts"
 
 export const play = async (args: string[], msg: Message): Promise<unknown> => {
   const query = args.join(" ")

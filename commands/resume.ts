@@ -15,9 +15,9 @@ export default async (args: string[], msg: Message) => {
   }
 
   try {
-    await distubeInstance.pause(msg.guildId)
+    await distubeInstance.resume(msg.guildId)
   } catch (error) {
     console.error(error)
-    console.log("Error running the pause command.")
+    console.log("Error running the resume command.")
   }
 }
