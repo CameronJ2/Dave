@@ -13,12 +13,49 @@ export default async (args: string[], msg: Message) => {
   const song1: string[] = ["https://www.youtube.com/watch?v=T6eK-2OQtew"]
   const song2: string[] = ["https://www.youtube.com/watch?v=4QIZE708gJ4"]
   const song3: string[] = ["https://www.youtube.com/watch?v=RoeXmaSE7Lo"]
+  const song4: string[] = ["https://www.youtube.com/watch?v=T6eK-2OQtew"]
+  const song5: string[] = ["https://www.youtube.com/watch?v=4QIZE708gJ4"]
+  const song6: string[] = ["https://www.youtube.com/watch?v=RoeXmaSE7Lo"]
+  const song7: string[] = ["https://www.youtube.com/watch?v=T6eK-2OQtew"]
+  const song8: string[] = ["https://www.youtube.com/watch?v=4QIZE708gJ4"]
+  const song9: string[] = ["https://www.youtube.com/watch?v=RoeXmaSE7Lo"]
+  const song10: string[] = ["https://www.youtube.com/watch?v=T6eK-2OQtew"]
+  const song11: string[] = ["https://www.youtube.com/watch?v=4QIZE708gJ4"]
+  const song12: string[] = ["https://www.youtube.com/watch?v=RoeXmaSE7Lo"]
+  const song13: string[] = ["https://www.youtube.com/watch?v=T6eK-2OQtew"]
+  const song14: string[] = ["https://www.youtube.com/watch?v=4QIZE708gJ4"]
+  const song15: string[] = ["https://www.youtube.com/watch?v=RoeXmaSE7Lo"]
 
   await play(song1, msg)
   await wait(1000)
   await play(song2, msg)
   await wait(1000)
   await play(song3, msg)
+  await wait(1000)
+  await play(song4, msg)
+  await wait(1000)
+  await play(song5, msg)
+  await wait(1000)
+  await play(song6, msg)
+  await wait(1000)
+  await play(song7, msg)
+  await wait(1000)
+  await play(song8, msg)
+  await wait(1000)
+  await play(song9, msg)
+  await wait(1000)
+  await play(song10, msg)
+  await wait(1000)
+  await play(song11, msg)
+  await wait(1000)
+  await play(song12, msg)
+  await wait(1000)
+  await play(song13, msg)
+  await wait(1000)
+  await play(song14, msg)
+  await wait(1000)
+  await play(song15, msg)
+  await wait(1000)
 
   // play(song1, msg)
   // setTimeout(() => {

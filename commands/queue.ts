@@ -12,14 +12,25 @@ export default async (args: string[], msg: Message) => {
     return
   }
 
-  const sentString = botQueue.songs
-    .map((value, index) => {
-      if (index === 0) {
-        return ""
-      }
-      return `${index}: ${value}`
-    })
-    .join("\n")
+  let page: number = args[0] ? parseInt(args[0]) : 0
 
-  return msg.channel.send(sentString.length ? sentString : "No songs in queue")
+  let sentString = ""
+
+  if (!botQueue) {
+    return msg.channel.send("No songs in queue")
+  }
+
+  for (let i = page * 10; i < i + 10; i++) {
+    if (i >= botQueue.songs.length) {
+      sentString += "Queue page finished."
+      break
+    }
+    if (i === 0) {
+      sentString += `now playing: ${botQueue.songs[i]}\n`
+      continue
+    }
+    sentString += `${i}: ${botQueue.songs[i]}\n`
+  }
+
+  return msg.channel.send(sentString)
 }
