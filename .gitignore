@@ -2,3 +2,5 @@
 .eslintrc.json
 node_modules
 cookies.json
+index.ts
+.env

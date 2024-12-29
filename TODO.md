@@ -10,6 +10,3 @@
 
 - Could use NordVPN on the server to try and bypass this.
 - Also could try using a Proxy server
-
-
-## Add pause command.
